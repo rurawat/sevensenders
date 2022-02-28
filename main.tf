@@ -73,6 +73,7 @@ module "alb" {
 }
 
 module "target_group" {
+  depends_on = [module.webserver]
   source = "./modules/target_group"
   target_group_name = var.target_group_name
   http_port =   local.http_port
